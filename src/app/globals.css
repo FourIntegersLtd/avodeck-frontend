@@ -24,3 +24,7 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.clip-arrow-right {
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+}

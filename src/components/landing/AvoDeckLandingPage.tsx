@@ -1,0 +1,647 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  FaArrowRight,
+
+  FaPoundSign,
+  FaCheck,
+  FaChevronDown,
+  FaLinkedin,
+  FaFacebook,
+  FaInstagram,
+  FaTiktok,
+  FaCalendar,
+  FaHandPointer,
+  FaVideo,
+  FaUsers,
+} from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import AvoDeckHowItWorks from "./AvoDeckHowItWorks";
+import Logo from "../ui/Logo";
+
+
+
+const CHANGING_PHRASES = [
+  { prefix: "the ", word: "right" },
+  { prefix: "a ", word: "reliable" },
+  { prefix: "an ", word: "instant" },
+  { prefix: "a ", word: "like-minded" },
+  { prefix: "an ", word: "exam-focused" },
+  { prefix: "a ", word: "stress-free" },
+  { prefix: "a ", word: "timely" },
+  { prefix: "a ", word: "verified" },
+];
+
+const HOW_IT_WORKS = [
+  {
+    icon: FaCalendar,
+    title: "Post Your Availability",
+    description:
+      "Select a date and time when you're free to practice. Add an optional note to help others find you.",
+  },
+  {
+    icon: FaHandPointer,
+    title: "Someone Claims Your Slot",
+    description:
+      "Another user will see your post and claim the slot. You'll both receive a confirmation.",
+  },
+  {
+    icon: FaVideo,
+    title: "Join at the Scheduled Time",
+    description:
+      "On the scheduled date, you can join 20 minutes before the scheduled time. Roles are assigned automatically when the session is created.",
+  },
+  {
+    icon: FaUsers,
+    title: "Practice Together",
+    description:
+      "Practice together and provide feedback to each other",
+  },
+];
+
+const FAQ_ITEMS = [
+  {
+    q: "What is AvoDeck?",
+    a: "AvoDeck helps doctors find practice partners for their clinical simulation exams. Match with like-minded peers, run structured practice sessions, and discuss management plans all in one place.",
+  },
+  {
+    q: "How much does it cost?",
+    a: "£9.99/month. Your first 2 practice sessions are free. No long-term commitment.",
+  },
+  {
+    q: "Who can use AvoDeck?",
+    a: "Doctors preparing for clinical exams including RCGP SCA, PLAB 2, and other OSCE-style assessments. We verify users so you practice with genuine peers.",
+  },
+  {
+    q: "How does matching work?",
+    a: "We match you by exam type, exam date, availability, and practice preferences.",
+  },
+];
+
+export default function AvoDeckLandingPage() {
+  const router = useRouter();
+  const [wordIndex, setWordIndex] = useState(0);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  useEffect(() => {
+    const t = setInterval(
+      () => setWordIndex((i) => (i + 1) % CHANGING_PHRASES.length),
+      2800,
+    );
+    return () => clearInterval(t);
+  }, []);
+
+  return (
+    <div className="min-h-screen bg-zinc-950 text-white">
+      {/* Header */}
+      <header className="sticky top-0 z-40 border-b border-zinc-800/80 bg-zinc-950/90 backdrop-blur">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-2 px-4 py-3 sm:gap-4 sm:py-4 sm:px-6">
+          <Link
+            href="/exams/avodeck"
+            className="flex items-center"
+            aria-label="Avodeck home"
+          >
+            <Image
+              src="/images/avodeck.png"
+              alt="Avodeck"
+              width={200}
+              height={52}
+              className="h-8 sm:h-10 md:h-12 w-auto max-w-[140px] sm:max-w-[180px] shrink-0 object-contain object-left"
+            />
+          </Link>
+          <nav className="flex items-center gap-2 sm:gap-3">
+            <button
+              type="button"
+              onClick={() => router.push("/auth/login")}
+              className="rounded-full border border-zinc-600 px-3 py-1.5 text-xs sm:px-4 sm:py-2 sm:text-sm font-medium text-zinc-300 transition hover:border-zinc-500 hover:text-white"
+            >
+              Log in
+            </button>
+            <button
+              type="button"
+              onClick={() => router.push("/auth/register?appType=avodeck")}
+              className="flex items-center gap-1.5 sm:gap-2 rounded-full bg-emerald-500 px-3 py-1.5 text-xs sm:px-5 sm:py-2 sm:text-sm font-semibold text-white transition hover:bg-emerald-400"
+            >
+              <span className="hidden xs:inline">Get started</span>
+              <span className="xs:hidden">Start</span>
+              <FaArrowRight className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
+            </button>
+          </nav>
+        </div>
+      </header>
+
+      {/* Hero */}
+      <section className="relative border-b border-zinc-800/80 bg-zinc-950">
+        <div className="mx-auto flex min-h-[85vh] max-w-7xl flex-col items-center justify-center gap-10 px-4 py-16 sm:px-6 sm:py-20 lg:flex-row lg:items-center lg:gap-12 lg:py-24">
+          <div className="flex-1 space-y-8 text-center lg:max-w-[55%] lg:flex-[0_0_55%] lg:text-left">
+            {/* <Link
+              href="/"
+              className="flex w-fit items-center justify-center gap-1.5  px-4 py-2 text-[11px] font-medium uppercase tracking-wider text-zinc-500 transition hover:border-zinc-400 hover:text-zinc-300 lg:justify-start"
+            >
+              <span>Powered by</span>
+              <span className="inline-flex scale-[0.5] origin-left">
+                <Logo variant="dark" />
+              </span>
+            </Link> */}
+            <h1 className="text-xl font-bold leading-tight text-white xs:text-2xl sm:text-3xl lg:text-4xl xl:text-5xl">
+              <span className="block">You&apos;re one click away from</span>
+              <span className="mt-1 flex flex-wrap items-baseline justify-center gap-x-1.5 gap-y-1 lg:justify-start">
+                <span>finding</span>
+                <span className="relative inline-flex w-fit max-w-full justify-center overflow-hidden rounded-lg bg-emerald-400 px-2 py-1 xs:px-3 xs:py-1.5 align-baseline whitespace-nowrap">
+                  <AnimatePresence mode="wait">
+                    <motion.span
+                      key={
+                        CHANGING_PHRASES[wordIndex].prefix +
+                        CHANGING_PHRASES[wordIndex].word
+                      }
+                      initial={{ opacity: 0, y: 24 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -24 }}
+                      transition={{ duration: 0.5, ease: "easeInOut" }}
+                      className="inline-block whitespace-nowrap text-zinc-900"
+                    >
+                      {CHANGING_PHRASES[wordIndex].prefix}
+                      {CHANGING_PHRASES[wordIndex].word}
+                    </motion.span>
+                  </AnimatePresence>
+                </span>{" "}
+                <span className="whitespace-nowrap">practice partner</span>
+              </span>
+            </h1>
+            <p className="mx-auto max-w-xl text-sm text-zinc-400 xs:text-base sm:text-lg lg:mx-0">
+              Match with doctors preparing for the same exam without the hassle
+              of finding a partner.
+            </p>
+            <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:justify-start">
+              <button
+                type="button"
+                onClick={() => router.push("/auth/register?appType=avodeck")}
+                className="flex w-full items-center justify-center gap-2 rounded-full bg-emerald-500 px-6 py-3 text-base font-semibold text-white transition hover:bg-emerald-400 sm:w-auto"
+              >
+                Find a partner
+                <FaArrowRight className="h-4 w-4" />
+              </button>
+              <button
+                type="button"
+                onClick={() => router.push("/auth/login")}
+                className="w-full rounded-full border border-zinc-600 px-6 py-3 text-base font-medium text-zinc-300 transition hover:border-zinc-500 hover:text-white sm:w-auto"
+              >
+                Log in
+              </button>
+            </div>
+          </div>
+          <div className="w-full lg:max-w-[45%] lg:flex-[0_0_45%]">
+            <div className="overflow-hidden rounded-2xl border border-zinc-700/60 bg-zinc-900/80 shadow-2xl">
+              <div className="flex items-center justify-between border-b border-zinc-700/60 bg-zinc-800/80 px-4 py-3">
+                <span className="text-sm font-medium text-zinc-300">
+                  Upcoming session
+                </span>
+                <span className="rounded-full bg-emerald-500/20 px-2 py-0.5 text-xs font-semibold text-emerald-400">
+                  30 min
+                </span>
+              </div>
+              <div className="space-y-4 p-4">
+                <div className="flex items-center gap-3">
+                  <div className="flex -space-x-2">
+                    <div className="h-10 w-10 rounded-full border-2 border-zinc-900 bg-zinc-600" />
+                    <div className="h-10 w-10 rounded-full border-2 border-zinc-900 bg-zinc-500" />
+                  </div>
+                  <div>
+                    <p className="font-medium text-white">
+                      Sarah K. · James M.
+                    </p>
+                    <p className="text-sm text-zinc-500">
+                      3min read · 12min consult · 15min feedback
+                    </p>
+                  </div>
+                </div>
+                <div className="rounded-lg bg-zinc-800/80 p-3 text-sm text-zinc-400">
+                  <p className="font-medium text-zinc-300">Today, 2:00 PM</p>
+                  <p>Post your slot or claim one. Matching in minutes.</p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => router.push("/auth/register?appType=avodeck")}
+                  className="w-full rounded-lg bg-emerald-500 py-2.5 font-semibold text-zinc-950 transition hover:bg-emerald-400"
+                >
+                  Start session
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How it works */}
+      <section className="border-b border-zinc-800/80 bg-zinc-900/40 py-16 sm:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <h2 className="text-center text-2xl font-bold text-white sm:text-3xl">
+            How it works
+          </h2>
+          <p className="mx-auto mt-3 max-w-2xl text-center text-zinc-400">
+            Four simple steps to find your practice partner and get exam-ready.
+          </p>
+          <div className="mt-12">
+            <AvoDeckHowItWorks steps={HOW_IT_WORKS} />
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing */}
+      <section
+        id="pricing"
+        className="scroll-mt-20 border-b border-zinc-800/80 bg-zinc-900/40 py-16 sm:py-20"
+      >
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <h2 className="text-center text-2xl font-bold text-white sm:text-3xl">
+            Simple pricing
+          </h2>
+          <p className="mx-auto mt-3 max-w-2xl text-center text-zinc-400">
+            Start free with 2 sessions. Upgrade when you’re ready. No long-term
+            commitment.
+          </p>
+          <div className="mx-auto mt-12 grid max-w-4xl gap-6 sm:grid-cols-2">
+            {/* Free — 2 sessions only */}
+            <div className="rounded-2xl border border-zinc-700 bg-zinc-900 p-8">
+              <h3 className="text-lg font-semibold text-white">Free</h3>
+              <div className="mt-2 flex items-baseline gap-1">
+                <span className="text-3xl font-bold text-white">£0</span>
+                <span className="text-zinc-400">forever</span>
+              </div>
+              <p className="mt-1 text-sm text-zinc-500">2 sessions only</p>
+              <ul className="mt-6 space-y-3 text-zinc-300">
+                {[
+                  "2 practice sessions",
+                  "Match with GP trainees",
+                  "Session transcripts",
+                  "NHS-verified users",
+                ].map((item) => (
+                  <li key={item} className="flex items-center gap-2">
+                    <FaCheck className="h-4 w-4 shrink-0 text-emerald-400" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <button
+                type="button"
+                onClick={() => router.push("/auth/register?appType=avodeck")}
+                className="mt-8 w-full rounded-full border border-zinc-600 py-3 font-semibold text-white transition hover:border-zinc-500 hover:bg-zinc-800"
+              >
+                Start free
+              </button>
+            </div>
+            {/* Paid — £9.99/month */}
+            <div className="rounded-2xl border border-emerald-500/50 bg-zinc-900 p-8">
+              <h3 className="text-lg font-semibold text-white">Paid</h3>
+              <div className="mt-2 flex items-baseline gap-1">
+                <FaPoundSign className="h-7 w-7 text-emerald-400" />
+                <span className="text-3xl font-bold text-white">9.99</span>
+                <span className="text-zinc-400">/month</span>
+              </div>
+              <p className="mt-1 text-sm text-zinc-500">Unlimited sessions</p>
+              <ul className="mt-6 space-y-3 text-zinc-300">
+                {[
+                  "Unlimited matching with GP trainees",
+                  "Structured 12‑minute practice sessions",
+                  "Session transcripts & AI case bank",
+                  "NHS-verified users",
+                ].map((item) => (
+                  <li key={item} className="flex items-center gap-2">
+                    <FaCheck className="h-4 w-4 shrink-0 text-emerald-400" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <button
+                type="button"
+                onClick={() => router.push("/auth/register?appType=avodeck")}
+                className="mt-8 w-full rounded-full bg-emerald-500 py-3 font-semibold text-white transition hover:bg-emerald-400"
+              >
+                Get started
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section
+        id="faq"
+        className="scroll-mt-20 border-b border-zinc-800/80 py-16 sm:py-20"
+      >
+        <div className="mx-auto max-w-3xl px-4 sm:px-6">
+          <h2 className="text-center text-2xl font-bold text-white sm:text-3xl">
+            FAQs
+          </h2>
+          <div className="mt-10 space-y-3">
+            {FAQ_ITEMS.map((item, i) => (
+              <div
+                key={item.q}
+                className="overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/40"
+              >
+                <button
+                  type="button"
+                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left text-sm font-medium text-white transition hover:bg-zinc-800/50"
+                  aria-expanded={openFaq === i}
+                >
+                  {item.q}
+                  <FaChevronDown
+                    className={`h-4 w-4 shrink-0 transition-transform ${
+                      openFaq === i ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+                {openFaq === i && (
+                  <div className="border-t border-zinc-800 px-5 py-4 text-sm text-zinc-400">
+                    {item.a}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="bg-zinc-900/60 py-16 sm:py-20">
+        <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
+          <h2 className="text-2xl font-bold text-white sm:text-3xl">
+            Ready to find your practice partner?
+          </h2>
+          <p className="mt-3 text-zinc-400">
+            Join AvoDeck and get your first 2 sessions free.
+          </p>
+          <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+            <button
+              type="button"
+              onClick={() => router.push("/auth/register?appType=avodeck")}
+              className="flex w-full items-center justify-center gap-2 rounded-full bg-emerald-500 px-6 py-3 text-base font-semibold text-white transition hover:bg-emerald-400 sm:w-auto"
+            >
+              Create account
+              <FaArrowRight className="h-4 w-4" />
+            </button>
+            <button
+              type="button"
+              onClick={() => router.push("/auth/login")}
+              className="w-full rounded-full border border-zinc-600 px-6 py-3 text-base font-medium text-zinc-300 transition hover:border-zinc-500 hover:text-white sm:w-auto"
+            >
+              Log in
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer — match provided design */}
+      <footer className="border-t border-zinc-800/80 bg-zinc-950">
+        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:py-16">
+          <div className="grid grid-cols-1 gap-8 sm:gap-10 lg:grid-cols-12 lg:gap-8">
+            <div className="flex flex-col gap-4 sm:gap-6 lg:col-span-4">
+              <div className="flex items-center">
+                <Image
+                  src="/images/avodeck.png"
+                  alt="Avodeck"
+                  width={160}
+                  height={44}
+                  className="h-9 sm:h-11 w-auto shrink-0 object-contain object-left"
+                />
+              </div>
+              <Link
+                href="/"
+                className="flex w-fit items-center gap-1.5 px-0 py-0 text-[11px] font-medium uppercase tracking-wider text-white transition hover:opacity-80"
+              >
+                <span>POWERED BY</span>
+                <span className="inline-flex scale-[0.5] origin-left">
+                  <Logo variant="dark" />
+                </span>
+              </Link>
+              <div className="flex gap-2">
+                <a
+                  href="https://x.com/osceguide"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-9 w-9 items-center justify-center rounded bg-white text-zinc-900 transition hover:bg-zinc-200"
+                  aria-label="X (Twitter)"
+                >
+                  <FaXTwitter className="h-4 w-4" />
+                </a>
+             
+                <a
+                  href="https://www.linkedin.com/company/osce-guide/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-9 w-9 items-center justify-center rounded bg-white text-zinc-900 transition hover:bg-zinc-200"
+                  aria-label="LinkedIn"
+                >
+                  <FaLinkedin className="h-4 w-4" />
+                </a>
+                <a
+                  href="https://www.instagram.com/osceguide"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-9 w-9 items-center justify-center rounded bg-white text-zinc-900 transition hover:bg-zinc-200"
+                  aria-label="Instagram"
+                >
+                  <FaInstagram className="h-4 w-4" />
+                </a>
+                <a
+                  href="https://facebook.com/osceguide"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-9 w-9 items-center justify-center rounded bg-white text-zinc-900 transition hover:bg-zinc-200"
+                  aria-label="Facebook"
+                >
+                  <FaFacebook className="h-4 w-4" />
+                </a>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-6 xs:gap-8 sm:grid-cols-4 lg:col-span-6">
+              <div>
+                <h4 className="text-xs font-semibold uppercase tracking-wider text-emerald-400">
+                  Exams
+                </h4>
+                <ul className="mt-3 space-y-2 text-sm text-white">
+                  <li>
+                    <Link
+                      href="/exams/sca"
+                      className="transition hover:text-emerald-400"
+                    >
+                      SCA (UK)
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/exams/avodeck"
+                      className="transition hover:text-emerald-400"
+                    >
+                      USMLE Step 2 (USA)
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/exams/plab"
+                      className="transition hover:text-emerald-400"
+                    >
+                      PLAB 2 (UK)
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="text-xs font-semibold uppercase tracking-wider text-emerald-400">
+                  Pricing
+                </h4>
+                <ul className="mt-3 space-y-2 text-sm text-white">
+                  <li>
+                    <Link
+                      href="/exams/avodeck#pricing"
+                      className="transition hover:text-emerald-400"
+                    >
+                      Free trial
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/exams/avodeck#pricing"
+                      className="transition hover:text-emerald-400"
+                    >
+                      Individual
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/exams/avodeck#pricing"
+                      className="transition hover:text-emerald-400"
+                    >
+                      Institution
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/exams/avodeck#pricing"
+                      className="transition hover:text-emerald-400"
+                    >
+                      Student Discount
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="text-xs font-semibold uppercase tracking-wider text-emerald-400">
+                  Resources
+                </h4>
+                <ul className="mt-3 space-y-2 text-sm text-white">
+                  <li>
+                    <Link
+                      href="/"
+                      className="transition hover:text-emerald-400"
+                    >
+                      About Us
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/exams/avodeck#faq"
+                      className="transition hover:text-emerald-400"
+                    >
+                      FAQs
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/blogs"
+                      className="transition hover:text-emerald-400"
+                    >
+                      Blog
+                    </Link>
+                  </li>
+                  <li>
+                    <a
+                      href="mailto:hello@fourintegers.com"
+                      className="transition hover:text-emerald-400"
+                    >
+                      Contact Us
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="text-xs font-semibold uppercase tracking-wider text-emerald-400">
+                  Legal
+                </h4>
+                <ul className="mt-3 space-y-2 text-sm text-white">
+                  <li>
+                    <Link
+                      href="/compliances/privacy-policy"
+                      className="transition hover:text-emerald-400"
+                    >
+                      Privacy Policy
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/compliances/cookies-policy"
+                      className="transition hover:text-emerald-400"
+                    >
+                      Cookie Policy
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/compliances/terms-of-service"
+                      className="transition hover:text-emerald-400"
+                    >
+                      Terms of Service
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/compliances/legal-disclaimer"
+                      className="transition hover:text-emerald-400"
+                    >
+                      Legal Disclaimer
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/compliances/referrals"
+                      className="transition hover:text-emerald-400"
+                    >
+                      Referral Policy
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="flex flex-col items-start gap-4 lg:col-span-2 lg:items-end">
+              <button
+                type="button"
+                onClick={() => router.push("/auth/login")}
+                className="rounded-lg bg-emerald-500 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-emerald-400"
+              >
+                Login
+              </button>
+              <Link
+                href="/"
+                className="flex items-center gap-1.5 text-sm font-medium text-white transition hover:text-emerald-400"
+              >
+                OSCE Guide
+                <FaArrowRight className="h-3.5 w-3.5 -rotate-45 text-emerald-400" />
+              </Link>
+            </div>
+          </div>
+          <div className="mt-8 sm:mt-12 border-t border-zinc-800 pt-6 sm:pt-8">
+            <p className="text-center text-xs sm:text-sm text-white px-4">
+              {new Date().getFullYear()} Four Integers Ltd. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
