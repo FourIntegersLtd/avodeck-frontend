@@ -139,16 +139,8 @@ export default function AvoDeckLandingPage() {
       <section className="relative border-b border-zinc-800/80 bg-zinc-950">
         <div className="mx-auto flex min-h-[85vh] max-w-7xl flex-col items-center justify-center gap-10 px-4 py-16 sm:px-6 sm:py-20 lg:flex-row lg:items-center lg:gap-12 lg:py-24">
           <div className="flex-1 space-y-8 text-center lg:max-w-[55%] lg:flex-[0_0_55%] lg:text-left">
-            {/* <Link
-              href="/"
-              className="flex w-fit items-center justify-center gap-1.5  px-4 py-2 text-[11px] font-medium uppercase tracking-wider text-zinc-500 transition hover:border-zinc-400 hover:text-zinc-300 lg:justify-start"
-            >
-              <span>Powered by</span>
-              <span className="inline-flex scale-[0.5] origin-left">
-                <Logo variant="dark" />
-              </span>
-            </Link> */}
-            <h1 className="text-xl font-bold leading-tight text-white xs:text-2xl sm:text-3xl lg:text-4xl xl:text-5xl">
+         
+            <h1 className="text-2xl font-bold leading-tight text-white xs:text-2xl sm:text-3xl lg:text-4xl xl:text-5xl">
               <span className="block">You&apos;re one click away from</span>
               <span className="mt-1 flex flex-wrap items-baseline justify-center gap-x-1.5 gap-y-1 lg:justify-start">
                 <span>finding</span>
@@ -238,15 +230,15 @@ export default function AvoDeckLandingPage() {
       </section>
 
       {/* How it works */}
-      <section className="border-b border-zinc-800/80 bg-zinc-900/40 py-16 sm:py-20">
+      <section className="border-b border-zinc-800/80 bg-zinc-900/40 py-12 sm:py-16 md:py-20 overflow-x-hidden">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <h2 className="text-center text-2xl font-bold text-white sm:text-3xl">
+          <h2 className="text-center text-xl sm:text-2xl md:text-3xl font-bold text-white">
             How it works
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-center text-zinc-400">
+          <p className="mx-auto mt-2 sm:mt-3 max-w-2xl text-center text-sm sm:text-base text-zinc-400 px-4">
             Four simple steps to find your practice partner and get exam-ready.
           </p>
-          <div className="mt-12">
+          <div className="mt-8 sm:mt-12">
             <AvoDeckHowItWorks steps={HOW_IT_WORKS} />
           </div>
         </div>

@@ -66,25 +66,25 @@ export default function AvoDeckHowItWorks({
   `;
 
   return (
-    <div className="relative w-full">
+    <div className="relative w-full overflow-x-hidden">
       {/* Progress Indicators */}
-      <div className="flex justify-center mb-12 gap-3">
+      <div className="flex justify-center mb-8 sm:mb-12 gap-2 sm:gap-3">
         {steps.map((_, index) => (
           <div
             key={index}
             className={`h-1.5 rounded-full transition-all duration-500 ${
               index === activeIndex
-                ? "w-24 bg-emerald-400"
-                : "w-24 bg-zinc-700"
+                ? "w-12 sm:w-24 bg-emerald-400"
+                : "w-12 sm:w-24 bg-zinc-700"
             }`}
           />
         ))}
       </div>
 
       {/* Three Avocados in a Row */}
-      <div className="relative flex items-center justify-center gap-8 sm:gap-12 md:gap-16 px-4 py-8">
-        {/* Left Avocado (Inactive) */}
-        <div className="relative w-40 h-48 sm:w-48 sm:h-56 md:w-56 md:h-64 flex-shrink-0">
+      <div className="relative flex items-center justify-center gap-2 sm:gap-4 md:gap-8 lg:gap-12 px-2 sm:px-4 py-4 sm:py-8 overflow-x-hidden">
+        {/* Left Avocado (Inactive) - Hidden on mobile, shown on sm+ */}
+        <div className="relative hidden sm:block w-32 h-40 sm:w-40 sm:h-48 md:w-48 md:h-56 lg:w-56 lg:h-64 flex-shrink-0">
           <svg
             viewBox="0 0 236 193"
             className="w-full h-full"
@@ -113,7 +113,7 @@ export default function AvoDeckHowItWorks({
         </div>
 
         {/* Center Avocado (Active) */}
-        <div className="relative w-52 h-64 sm:w-64 sm:h-80 md:w-72 md:h-[22rem] flex-shrink-0 z-10">
+        <div className="relative w-48 h-56 sm:w-56 sm:h-64 md:w-64 md:h-80 lg:w-72 lg:h-[22rem] flex-shrink-0 z-10">
           <svg
             viewBox="0 0 236 193"
             className="w-full h-full drop-shadow-2xl"
@@ -129,17 +129,17 @@ export default function AvoDeckHowItWorks({
           </svg>
 
           {/* Step Number Badge */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-14 h-14 sm:w-16 sm:h-16 bg-black rounded-full flex items-center justify-center z-30">
-            <span className="text-white font-bold text-2xl sm:text-3xl">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-black rounded-full flex items-center justify-center z-30">
+            <span className="text-white font-bold text-xl sm:text-2xl md:text-3xl">
               {activeIndex + 1}
             </span>
           </div>
 
           {/* Content inside center avocado - white speech bubble */}
-          <div className="absolute inset-0 flex items-center justify-center px-8 py-12 pt-20">
-            <div className="bg-white rounded-[45%] w-[55%] h-[35%] flex items-center justify-center shadow-lg">
-              <div className="text-center px-3 py-1">
-                <h3 className="text-black font-semibold text-sm sm:text-base md:text-lg leading-tight">
+          <div className="absolute inset-0 flex items-center justify-center px-4 sm:px-6 md:px-8 py-8 sm:py-10 md:py-12 pt-16 sm:pt-18 md:pt-20">
+            <div className="bg-white rounded-[45%] w-[60%] sm:w-[55%] h-[40%] sm:h-[35%] flex items-center justify-center shadow-lg">
+              <div className="text-center px-2 sm:px-3 py-1">
+                <h3 className="text-black font-semibold text-xs sm:text-sm md:text-base lg:text-lg leading-tight">
                   {activeStep.title}
                 </h3>
               </div>
@@ -147,8 +147,8 @@ export default function AvoDeckHowItWorks({
           </div>
         </div>
 
-        {/* Right Avocado (Inactive) */}
-        <div className="relative w-40 h-48 sm:w-48 sm:h-56 md:w-56 md:h-64 flex-shrink-0">
+        {/* Right Avocado (Inactive) - Hidden on mobile, shown on sm+ */}
+        <div className="relative hidden sm:block w-32 h-40 sm:w-40 sm:h-48 md:w-48 md:h-56 lg:w-56 lg:h-64 flex-shrink-0">
           <svg
             viewBox="0 0 236 193"
             className="w-full h-full"
@@ -178,8 +178,8 @@ export default function AvoDeckHowItWorks({
       </div>
 
       {/* Description below the avocados */}
-      <div className="mt-8 text-center">
-        <p className="text-zinc-400 text-sm sm:text-base max-w-2xl mx-auto px-4">
+      <div className="mt-6 sm:mt-8 text-center">
+        <p className="text-zinc-400 text-xs sm:text-sm md:text-base max-w-2xl mx-auto px-4 sm:px-6">
           {activeStep.description}
         </p>
       </div>
