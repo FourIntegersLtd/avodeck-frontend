@@ -7,7 +7,8 @@ import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   FaArrowRight,
-
+  FaBolt,
+  FaStopwatch,
   FaPoundSign,
   FaCheck,
   FaChevronDown,
@@ -19,7 +20,7 @@ import {
   FaFileAlt,
   FaEnvelope,
 } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
+import { FaCalendarCheck, FaXTwitter } from "react-icons/fa6";
 import AvoDeckHowItWorks from "./AvoDeckHowItWorks";
 import Logo from "../ui/Logo";
 
@@ -99,7 +100,7 @@ export default function AvoDeckLandingPage() {
   return (
     <div className="min-h-screen bg-zinc-950 text-white">
       {/* Header */}
-      <header className="sticky top-0 z-40 border-b border-zinc-800/80 bg-zinc-950/90 backdrop-blur">
+      <header className="sticky top-0 z-40 bg-zinc-950/90 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-2 px-4 py-3 sm:gap-4 sm:py-4 sm:px-6">
           <Link
             href="/exams/avodeck"
@@ -136,8 +137,8 @@ export default function AvoDeckLandingPage() {
       </header>
 
       {/* Hero */}
-      <section className="relative border-b border-zinc-800/80 bg-zinc-950">
-        <div className="mx-auto flex min-h-[85vh] max-w-7xl flex-col items-center justify-center gap-10 px-4 py-16 sm:px-6 sm:py-20 lg:flex-row lg:items-center lg:gap-12 lg:py-24">
+      <section className="relative bg-zinc-950 min-h-screen flex items-center">
+        <div className="mx-auto flex w-full max-w-7xl flex-col items-center justify-center gap-10 px-4 py-16 sm:px-6 sm:py-20 lg:flex-row lg:items-center lg:gap-12 lg:py-24">
           <div className="flex-1 space-y-8 text-center lg:max-w-[55%] lg:flex-[0_0_55%] lg:text-left">
          
             <h1 className="text-2xl font-bold leading-tight text-white xs:text-2xl sm:text-3xl lg:text-4xl xl:text-5xl">
@@ -230,7 +231,7 @@ export default function AvoDeckLandingPage() {
       </section>
 
       {/* How it works */}
-      <section className="border-b border-zinc-800/80 bg-zinc-900/40 py-12 sm:py-16 md:py-20 overflow-x-hidden">
+      <section className="bg-zinc-950 py-12 sm:py-16 md:py-20 overflow-x-hidden">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <h2 className="text-center text-xl sm:text-2xl md:text-3xl font-bold text-white">
             How it works
@@ -244,10 +245,78 @@ export default function AvoDeckLandingPage() {
         </div>
       </section>
 
+      {/* Practice with Colleagues */}
+      <section className="bg-zinc-950 py-16 sm:py-20 md:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="mx-auto max-w-6xl">
+            <div className="mb-12 text-center sm:mb-16">
+            
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
+                Practice with Colleagues
+              </h2>
+              <p className="mt-4 text-sm sm:text-base text-zinc-400 max-w-3xl mx-auto">
+                Choose between instant matching or scheduled sessions. Practice clinical scenarios with colleagues in real-time video consultations.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+              <div className="space-y-6 sm:space-y-8">
+                {[
+                  {
+                    icon: FaBolt,
+                    title: "Live Practice",
+                    description:
+                      "Get matched instantly with available colleagues and start practicing immediately.",
+                  },
+                  {
+                    icon: FaCalendarCheck,
+                    title: "Marketplace",
+                    description:
+                      "Post your availability or browse sessions from colleagues. Schedule at times that work for both of you.",
+                  },
+                  {
+                    icon: FaStopwatch,
+                    title: "Automatic Timing",
+                    description:
+                      "Built-in timer matches the exam format. Practice with realistic time constraints.",
+                  },
+                ].map((item) => (
+                  <div key={item.title} className="flex gap-4">
+                    <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-emerald-500/20 text-emerald-400 sm:h-10 sm:w-10">
+                      <item.icon className="h-5 w-5 sm:h-6 sm:w-6" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-white sm:text-xl">
+                        {item.title}
+                      </h3>
+                      <p className="text-sm sm:text-base text-zinc-400">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="relative">
+                <div className="absolute inset-0 -rotate-3 rounded-3xl bg-gradient-to-r from-emerald-500 to-emerald-600 opacity-20 blur-3xl" />
+                <div className="relative w-full overflow-hidden rounded-2xl border border-zinc-700/60 bg-zinc-800/40 shadow-xl">
+                  <Image
+                    src="/images/video_call.jpg"
+                    alt="Live video consultation practice with colleagues"
+                    width={1200}
+                    height={800}
+                    className="h-full w-full object-contain"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Pricing */}
       <section
         id="pricing"
-        className="scroll-mt-20 border-b border-zinc-800/80 bg-zinc-900/40 py-16 sm:py-20"
+        className="scroll-mt-20 bg-zinc-950 py-16 sm:py-20"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <h2 className="text-center text-2xl font-bold text-white sm:text-3xl">
@@ -324,7 +393,7 @@ export default function AvoDeckLandingPage() {
       {/* FAQ */}
       <section
         id="faq"
-        className="scroll-mt-20 border-b border-zinc-800/80 py-16 sm:py-20"
+        className="scroll-mt-20 bg-zinc-950 py-16 sm:py-20"
       >
         <div className="mx-auto max-w-3xl px-4 sm:px-6">
           <h2 className="text-center text-2xl font-bold text-white sm:text-3xl">
@@ -361,7 +430,7 @@ export default function AvoDeckLandingPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="bg-zinc-900/60 py-16 sm:py-20">
+      <section className="bg-zinc-950 py-16 sm:py-20">
         <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
           <h2 className="text-2xl font-bold text-white sm:text-3xl">
             Ready to find your practice partner?
@@ -390,10 +459,10 @@ export default function AvoDeckLandingPage() {
       </section>
 
       {/* Footer — match provided design */}
-      <footer className="border-t border-zinc-800/80 bg-zinc-950">
-        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:py-16">
-          <div className="grid grid-cols-1 gap-8 sm:gap-10 lg:grid-cols-12 lg:gap-8">
-            <div className="flex flex-col gap-4 sm:gap-6 lg:col-span-4">
+      <footer className="bg-zinc-950">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:py-24">
+          <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-12 sm:gap-14 lg:gap-8">
+            <div className="flex flex-col gap-6 sm:gap-8 lg:flex-shrink-0">
               <div className="flex items-center">
                 <Image
                   src="/images/avodeck.png"
@@ -403,15 +472,17 @@ export default function AvoDeckLandingPage() {
                   className="h-9 sm:h-11 w-auto shrink-0 object-contain object-left"
                 />
               </div>
-              <Link
-                href="/"
+              <a
+                href="https://www.osceguide.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex w-fit items-center gap-1.5 px-0 py-0 text-[11px] font-medium uppercase tracking-wider text-white transition hover:opacity-80"
               >
                 <span>POWERED BY</span>
                 <span className="inline-flex scale-[0.5] origin-left">
                   <Logo variant="dark" />
                 </span>
-              </Link>
+              </a>
               <div className="flex gap-2">
                 <a
                   href="https://x.com/osceguide"
@@ -441,25 +512,18 @@ export default function AvoDeckLandingPage() {
                 >
                   <FaInstagram className="h-4 w-4" />
                 </a>
-                <a
-                  href="https://facebook.com/osceguide"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex h-9 w-9 items-center justify-center rounded bg-white text-zinc-900 transition hover:bg-zinc-200"
-                  aria-label="Facebook"
-                >
-                  <FaFacebook className="h-4 w-4" />
-                </a>
+              
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-6 xs:gap-8 sm:grid-cols-4 lg:col-span-6">
-              <div>
+            <div className="grid grid-cols-2 gap-8 xs:gap-10 sm:grid-cols-3 lg:flex lg:gap-12 lg:flex-1 lg:justify-between">
+              <div className="lg:flex-1">
                 <h4 className="text-xs font-semibold uppercase tracking-wider text-emerald-400">
                   Exams
                 </h4>
                 <ul className="mt-3 space-y-2 text-sm text-white">
                   <li>
                     <Link
+
                       href="/exams/sca"
                       className="transition hover:text-emerald-400"
                     >
@@ -484,46 +548,8 @@ export default function AvoDeckLandingPage() {
                   </li>
                 </ul>
               </div>
-              <div>
-                <h4 className="text-xs font-semibold uppercase tracking-wider text-emerald-400">
-                  Pricing
-                </h4>
-                <ul className="mt-3 space-y-2 text-sm text-white">
-                  <li>
-                    <Link
-                      href="/exams/avodeck#pricing"
-                      className="transition hover:text-emerald-400"
-                    >
-                      Free trial
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/exams/avodeck#pricing"
-                      className="transition hover:text-emerald-400"
-                    >
-                      Individual
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/exams/avodeck#pricing"
-                      className="transition hover:text-emerald-400"
-                    >
-                      Institution
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/exams/avodeck#pricing"
-                      className="transition hover:text-emerald-400"
-                    >
-                      Student Discount
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-              <div>
+         
+              <div className="lg:flex-1">
                 <h4 className="text-xs font-semibold uppercase tracking-wider text-emerald-400">
                   Resources
                 </h4>
@@ -562,7 +588,7 @@ export default function AvoDeckLandingPage() {
                   </li>
                 </ul>
               </div>
-              <div>
+              <div className="lg:flex-1">
                 <h4 className="text-xs font-semibold uppercase tracking-wider text-emerald-400">
                   Legal
                 </h4>
@@ -610,25 +636,10 @@ export default function AvoDeckLandingPage() {
                 </ul>
               </div>
             </div>
-            <div className="flex flex-col items-start gap-4 lg:col-span-2 lg:items-end">
-              <button
-                type="button"
-                onClick={() => router.push("/auth/login")}
-                className="rounded-lg bg-emerald-500 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-emerald-400"
-              >
-                Login
-              </button>
-              <Link
-                href="/"
-                className="flex items-center gap-1.5 text-sm font-medium text-white transition hover:text-emerald-400"
-              >
-                OSCE Guide
-                <FaArrowRight className="h-3.5 w-3.5 -rotate-45 text-emerald-400" />
-              </Link>
-            </div>
+           
           </div>
-          <div className="mt-8 sm:mt-12 border-t border-zinc-800 pt-6 sm:pt-8">
-            <p className="text-center text-xs sm:text-sm text-white px-4">
+          <div className="mt-12 sm:mt-16 lg:mt-20 pt-8 sm:pt-10 lg:pt-12">
+            <p className="text-center text-xs sm:text-sm text-zinc-400 px-4">
               {new Date().getFullYear()} Four Integers Ltd. All rights reserved.
             </p>
           </div>
