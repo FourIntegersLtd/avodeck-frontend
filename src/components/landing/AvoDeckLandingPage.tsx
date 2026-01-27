@@ -41,40 +41,40 @@ const HOW_IT_WORKS = [
     icon: FaEnvelope,
     title: "Sign Up with Work Email",
     description:
-      "Verify instantly with your work email. No manual approval needed - you're practicing in 60 seconds.",
+      "Verify instantly with your work email. No manual approval needed - you're ready to join video practice sessions in 60 seconds.",
   },
   {
     icon: FaHandPointer,
-    title: "Post or Claim a Session",
+    title: "Post or Claim a Video Session",
     description:
-      "Post your availability (date, time, your role) or browse and claim someone else's slot. Most sessions get claimed within minutes.",
+      "Post your availability (date, time, your role) or browse and claim someone else's video slot. Most sessions get claimed within minutes.",
   },
   {
     icon: FaFileAlt,
     title: "Prepare Your Case",
     description:
-      "Bring your own materials from question banks, or generate an AI case in 30 seconds if you don't have anything prepared.",
+      "Bring your own materials from question banks, or generate an AI case in 30 seconds. Have everything ready before you join the video call.",
   },
   {
     icon: FaUsers,
-    title: "Practice Together",
+    title: "Practice Together on a Video Call",
     description:
-      "Practice together and provide feedback to each other. Sessions are automatically transcribed so you can review and improve.",
+      "Join a video call and practice together. Give each other feedback in real time. Sessions are automatically transcribed so you can review and improve.",
   },
 ];
 
 
 const FAQ_ITEMS = [
   {
-    q: "What is AvoDeck?",
-    a: "AvoDeck helps doctors find practice partners for their clinical simulation exams. Match with like-minded peers, run structured practice sessions, and discuss management plans all in one place.",
+    q: "What is Avodeck?",
+    a: "Avodeck helps doctors find practice partners for their clinical simulation exams. Match with like-minded peers, run structured practice sessions, and discuss management plans all in one place.",
   },
   {
     q: "How much does it cost?",
     a: "£9.99/month. Your first 2 practice sessions are free. No long-term commitment.",
   },
   {
-    q: "Who can use AvoDeck?",
+    q: "Who can use Avodeck?",
     a: "Doctors preparing for clinical exams including RCGP SCA, PLAB 2, and other OSCE-style assessments. We verify users so you practice with genuine peers.",
   },
   {
@@ -337,9 +337,9 @@ export default function AvoDeckLandingPage() {
               <ul className="mt-6 space-y-3 text-zinc-300">
                 {[
                   "2 practice sessions",
-                  "Match with GP trainees",
+                  "Match with practice partners",
                   "Session transcripts",
-                  "NHS-verified users",
+                  "Verified users",
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-2">
                     <FaCheck className="h-4 w-4 shrink-0 text-emerald-400" />
@@ -366,10 +366,10 @@ export default function AvoDeckLandingPage() {
               <p className="mt-1 text-sm text-zinc-500">Unlimited sessions</p>
               <ul className="mt-6 space-y-3 text-zinc-300">
                 {[
-                  "Unlimited matching with GP trainees",
-                  "Structured 12‑minute practice sessions",
-                  "Session transcripts & AI case bank",
-                  "NHS-verified users",
+                  "Unlimited video calls with practice partners",
+                  "Structured practice sessions",
+                  "Session transcripts",
+                  "Verified users",
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-2">
                     <FaCheck className="h-4 w-4 shrink-0 text-emerald-400" />
@@ -411,17 +411,30 @@ export default function AvoDeckLandingPage() {
                   aria-expanded={openFaq === i}
                 >
                   {item.q}
-                  <FaChevronDown
-                    className={`h-4 w-4 shrink-0 transition-transform ${
-                      openFaq === i ? "rotate-180" : ""
-                    }`}
-                  />
+                  <motion.span
+                    animate={{ rotate: openFaq === i ? 180 : 0 }}
+                    transition={{ duration: 0.25, ease: "easeInOut" }}
+                    className="inline-flex shrink-0"
+                  >
+                    <FaChevronDown className="h-4 w-4" />
+                  </motion.span>
                 </button>
-                {openFaq === i && (
-                  <div className="border-t border-zinc-800 px-5 py-4 text-sm text-zinc-400">
-                    {item.a}
-                  </div>
-                )}
+                <AnimatePresence initial={false}>
+                  {openFaq === i && (
+                    <motion.div
+                      key={i}
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.25, ease: "easeInOut" }}
+                      className="overflow-hidden border-t border-zinc-800"
+                    >
+                      <div className="px-5 py-4 text-sm text-zinc-400">
+                        {item.a}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             ))}
           </div>
@@ -435,7 +448,7 @@ export default function AvoDeckLandingPage() {
             Ready to find your practice partner?
           </h2>
           <p className="mt-3 text-zinc-400">
-            Join AvoDeck and get your first 2 sessions free.
+            Join Avodeck and get your first 2 sessions free.
           </p>
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <button
@@ -462,7 +475,7 @@ export default function AvoDeckLandingPage() {
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:py-24">
           <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-12 sm:gap-14 lg:gap-8">
             <div className="flex flex-col gap-6 sm:gap-8 lg:flex-shrink-0">
-              <div className="flex items-center">
+              {/* <div className="flex items-center">
                 <Image
                   src="/images/avodeck.png"
                   alt="Avodeck"
@@ -470,7 +483,7 @@ export default function AvoDeckLandingPage() {
                   height={44}
                   className="h-9 sm:h-11 w-auto shrink-0 object-contain object-left"
                 />
-              </div>
+              </div> */}
               <a
                 href="https://www.osceguide.com"
                 target="_blank"
