@@ -13,7 +13,6 @@ import {
   FaCheck,
   FaChevronDown,
   FaLinkedin,
-  FaFacebook,
   FaInstagram,
   FaHandPointer,
   FaUsers,
@@ -52,7 +51,7 @@ const HOW_IT_WORKS = [
   },
   {
     icon: FaFileAlt,
-    title: "Prepare Your Case (Optional)",
+    title: "Prepare Your Case",
     description:
       "Bring your own materials from question banks, or generate an AI case in 30 seconds if you don't have anything prepared.",
   },
@@ -298,7 +297,7 @@ export default function AvoDeckLandingPage() {
               </div>
               <div className="relative">
                 <div className="absolute inset-0 -rotate-3 rounded-3xl bg-gradient-to-r from-emerald-500 to-emerald-600 opacity-20 blur-3xl" />
-                <div className="relative w-full overflow-hidden rounded-2xl border border-zinc-700/60 bg-zinc-800/40 shadow-xl">
+                <div className="relative w-full overflow-hidden rounded-2xl border border-green-500 shadow-xl">
                   <Image
                     src="/images/video_call.jpg"
                     alt="Live video consultation practice with colleagues"
