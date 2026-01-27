@@ -18,12 +18,12 @@ import {
   FaUsers,
   FaFileAlt,
   FaEnvelope,
+  FaVideo,
+  FaClock,
 } from "react-icons/fa";
 import { FaCalendarCheck, FaXTwitter } from "react-icons/fa6";
 import AvoDeckHowItWorks from "./AvoDeckHowItWorks";
 import Logo from "../ui/Logo";
-
-
 
 const CHANGING_PHRASES = [
   { prefix: "the ", word: "right" },
@@ -62,7 +62,6 @@ const HOW_IT_WORKS = [
       "Join a video call and practice together. Give each other feedback in real time. Sessions are automatically transcribed so you can review and improve.",
   },
 ];
-
 
 const FAQ_ITEMS = [
   {
@@ -115,6 +114,32 @@ export default function AvoDeckLandingPage() {
             />
           </Link>
           <nav className="flex items-center gap-2 sm:gap-3">
+            <div className="hidden items-center gap-1 sm:flex md:gap-3">
+              <Link
+                href="#how-it-works"
+                className="rounded-full px-3 py-1.5 text-xs font-medium text-zinc-400 transition hover:text-white sm:px-3 sm:py-2 sm:text-sm"
+              >
+                How it works
+              </Link>
+              <Link
+                href="#practice"
+                className="rounded-full px-3 py-1.5 text-xs font-medium text-zinc-400 transition hover:text-white sm:px-3 sm:py-2 sm:text-sm"
+              >
+                Practice
+              </Link>
+              <Link
+                href="#pricing"
+                className="rounded-full px-3 py-1.5 text-xs font-medium text-zinc-400 transition hover:text-white sm:px-3 sm:py-2 sm:text-sm"
+              >
+                Pricing
+              </Link>
+              <Link
+                href="#faq"
+                className="rounded-full px-3 py-1.5 text-xs font-medium text-zinc-400 transition hover:text-white sm:px-3 sm:py-2 sm:text-sm"
+              >
+                FAQ
+              </Link>
+            </div>
             <button
               type="button"
               onClick={() => router.push("/auth/login")}
@@ -122,7 +147,7 @@ export default function AvoDeckLandingPage() {
             >
               Log in
             </button>
-            <button
+            {/* <button
               type="button"
               onClick={() => router.push("/auth/register?appType=avodeck")}
               className="flex items-center gap-1.5 sm:gap-2 rounded-full bg-emerald-500 px-3 py-1.5 text-xs sm:px-5 sm:py-2 sm:text-sm font-semibold text-white transition hover:bg-emerald-400"
@@ -130,7 +155,7 @@ export default function AvoDeckLandingPage() {
               <span className="hidden xs:inline">Get started</span>
               <span className="xs:hidden">Start</span>
               <FaArrowRight className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
-            </button>
+            </button> */}
           </nav>
         </div>
       </header>
@@ -139,7 +164,6 @@ export default function AvoDeckLandingPage() {
       <section className="relative grid min-h-[calc(100vh-4.5rem)] min-h-[calc(100dvh-4.5rem)] w-full place-items-center bg-zinc-950">
         <div className="flex w-full max-w-7xl flex-col items-center justify-center gap-10 px-4 py-8 sm:px-6 sm:py-12 lg:flex-row lg:items-center lg:gap-12 lg:py-16">
           <div className="flex-1 space-y-8 text-center lg:max-w-[55%] lg:flex-[0_0_55%] lg:text-left">
-         
             <h1 className="text-2xl font-bold leading-tight text-white xs:text-2xl sm:text-3xl lg:text-4xl xl:text-5xl">
               <span className="block">You&apos;re one click away from</span>
               <span className="mt-1 flex flex-wrap items-baseline justify-center gap-x-1.5 gap-y-1 lg:justify-start">
@@ -175,54 +199,69 @@ export default function AvoDeckLandingPage() {
                 onClick={() => router.push("/auth/register?appType=avodeck")}
                 className="flex w-full items-center justify-center gap-2 rounded-full bg-emerald-500 px-6 py-3 text-base font-semibold text-white transition hover:bg-emerald-400 sm:w-auto"
               >
-                Find a partner
+              Join wait list
                 <FaArrowRight className="h-4 w-4" />
               </button>
-              <button
+              {/* <button
                 type="button"
                 onClick={() => router.push("/auth/login")}
                 className="w-full rounded-full border border-zinc-600 px-6 py-3 text-base font-medium text-zinc-300 transition hover:border-zinc-500 hover:text-white sm:w-auto"
               >
                 Log in
-              </button>
+              </button> */}
             </div>
           </div>
           <div className="w-full lg:max-w-[45%] lg:flex-[0_0_45%]">
             <div className="overflow-hidden rounded-2xl border border-zinc-700/60 bg-zinc-900/80 shadow-2xl">
               <div className="flex items-center justify-between border-b border-zinc-700/60 bg-zinc-800/80 px-4 py-3">
-                <span className="text-sm font-medium text-zinc-300">
-                  Upcoming session
+                <span className="flex items-center gap-2 text-sm font-medium text-zinc-300">
+                  <FaVideo className="h-4 w-4 text-emerald-400/80" />
+                  Upcoming video session
                 </span>
-                <span className="rounded-full bg-emerald-500/20 px-2 py-0.5 text-xs font-semibold text-emerald-400">
-                  30 min
-                </span>
+           
               </div>
-              <div className="space-y-4 p-4">
-                <div className="flex items-center gap-3">
-                  <div className="flex -space-x-2">
-                    <div className="h-10 w-10 rounded-full border-2 border-zinc-900 bg-zinc-600" />
-                    <div className="h-10 w-10 rounded-full border-2 border-zinc-900 bg-zinc-500" />
+              <div className="space-y-5 p-5">
+                <div className="flex items-center gap-4">
+                  <div className="flex -space-x-2.5 shrink-0">
+                    <div className="relative h-11 w-11 overflow-hidden rounded-full border-2 border-zinc-900 ring-2 ring-zinc-800">
+                      <Image
+                        src="/images/female-hero.jpg"
+                        alt="Sarah K"
+                        fill
+                        sizes="44px"
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="relative h-11 w-11 overflow-hidden rounded-full border-2 border-zinc-900 ring-2 ring-zinc-800">
+                      <Image
+                        src="/images/male-hero.jpg"
+                        alt="James M"
+                        fill
+                        sizes="44px"
+                        className="object-cover"
+                      />
+                    </div>
                   </div>
-                  <div>
-                    <p className="font-medium text-white">
-                      Sarah K. · James M.
-                    </p>
+                  <div className="min-w-0 flex-1">
+                    <p className="font-medium text-white">@Sarah K · @James M.</p>
                     <p className="text-sm text-zinc-500">
-                      3min read · 12min consult · 15min feedback
+                      Video practice · Session booked
+                    </p>
+                    <p className="mt-0.5 text-xs text-zinc-500">
+                      RCGP SCA · 12 min stations
                     </p>
                   </div>
                 </div>
-                <div className="rounded-lg bg-zinc-800/80 p-3 text-sm text-zinc-400">
-                  <p className="font-medium text-zinc-300">Today, 2:00 PM</p>
-                  <p>Post your slot or claim one. Matching in minutes.</p>
+                <div className="flex items-center gap-3 rounded-lg bg-zinc-800/80 p-3">
+                  <FaClock className="h-4 w-4 shrink-0 text-zinc-500" />
+                  <div className="min-w-0 flex-1 text-sm">
+                    <p className="font-medium text-zinc-300">Today, 2:00 PM</p>
+                    <p className="text-zinc-500">Session scheduled · Join from dashboard</p>
+                  </div>
+                  <span className="shrink-0 rounded-full bg-emerald-500/15 px-2.5 py-1 text-xs font-medium text-emerald-400">
+                    Starts in 2 hrs
+                  </span>
                 </div>
-                <button
-                  type="button"
-                  onClick={() => router.push("/auth/register?appType=avodeck")}
-                  className="w-full rounded-lg bg-emerald-500 py-2.5 font-semibold text-zinc-950 transition hover:bg-emerald-400"
-                >
-                  Start session
-                </button>
               </div>
             </div>
           </div>
@@ -230,7 +269,7 @@ export default function AvoDeckLandingPage() {
       </section>
 
       {/* How it works */}
-      <section className="bg-zinc-950 py-12 sm:py-16 md:py-20 overflow-x-hidden">
+      <section id="how-it-works" className="scroll-mt-20 bg-zinc-950 py-12 sm:py-16 md:py-20 overflow-x-hidden">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <h2 className="text-center text-xl sm:text-2xl md:text-3xl font-bold text-white">
             How it works
@@ -245,16 +284,17 @@ export default function AvoDeckLandingPage() {
       </section>
 
       {/* Practice with Colleagues */}
-      <section className="bg-zinc-950 py-16 sm:py-20 md:py-24">
+      <section id="practice" className="scroll-mt-20 bg-zinc-950 py-16 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="mx-auto max-w-6xl">
             <div className="mb-12 text-center sm:mb-16">
-            
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
                 Practice with Colleagues
               </h2>
               <p className="mt-4 text-sm sm:text-base text-zinc-400 max-w-3xl mx-auto">
-                Choose between instant matching or scheduled sessions. Practice clinical scenarios with colleagues in real-time video consultations.
+                Choose between instant matching or scheduled sessions. Practice
+                clinical scenarios with colleagues in real-time video
+                consultations.
               </p>
             </div>
 
@@ -313,10 +353,7 @@ export default function AvoDeckLandingPage() {
       </section>
 
       {/* Pricing */}
-      <section
-        id="pricing"
-        className="scroll-mt-20 bg-zinc-950 py-16 sm:py-20"
-      >
+      <section id="pricing" className="scroll-mt-20 bg-zinc-950 py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <h2 className="text-center text-2xl font-bold text-white sm:text-3xl">
             Simple pricing
@@ -390,10 +427,7 @@ export default function AvoDeckLandingPage() {
       </section>
 
       {/* FAQ */}
-      <section
-        id="faq"
-        className="scroll-mt-20 bg-zinc-950 py-16 sm:py-20"
-      >
+      <section id="faq" className="scroll-mt-20 bg-zinc-950 py-16 sm:py-20">
         <div className="mx-auto max-w-3xl px-4 sm:px-6">
           <h2 className="text-center text-2xl font-bold text-white sm:text-3xl">
             FAQs
@@ -505,7 +539,7 @@ export default function AvoDeckLandingPage() {
                 >
                   <FaXTwitter className="h-4 w-4" />
                 </a>
-             
+
                 <a
                   href="https://www.linkedin.com/company/osce-guide/"
                   target="_blank"
@@ -524,7 +558,6 @@ export default function AvoDeckLandingPage() {
                 >
                   <FaInstagram className="h-4 w-4" />
                 </a>
-              
               </div>
             </div>
             <div className="grid grid-cols-2 gap-8 xs:gap-10 sm:grid-cols-3 lg:flex lg:gap-12 lg:flex-1 lg:justify-between">
@@ -535,7 +568,6 @@ export default function AvoDeckLandingPage() {
                 <ul className="mt-3 space-y-2 text-sm text-white">
                   <li>
                     <Link
-
                       href="/exams/sca"
                       className="transition hover:text-emerald-400"
                     >
@@ -560,7 +592,7 @@ export default function AvoDeckLandingPage() {
                   </li>
                 </ul>
               </div>
-         
+
               <div className="lg:flex-1">
                 <h4 className="text-xs font-semibold uppercase tracking-wider text-emerald-400">
                   Resources
@@ -648,7 +680,6 @@ export default function AvoDeckLandingPage() {
                 </ul>
               </div>
             </div>
-           
           </div>
           <div className="mt-12 sm:mt-16 lg:mt-20 pt-8 sm:pt-10 lg:pt-12">
             <p className="text-center text-xs sm:text-sm text-zinc-400 px-4">
