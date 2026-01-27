@@ -14,11 +14,10 @@ import {
   FaLinkedin,
   FaFacebook,
   FaInstagram,
-  FaTiktok,
-  FaCalendar,
   FaHandPointer,
-  FaVideo,
   FaUsers,
+  FaFileAlt,
+  FaEnvelope,
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import AvoDeckHowItWorks from "./AvoDeckHowItWorks";
@@ -39,30 +38,31 @@ const CHANGING_PHRASES = [
 
 const HOW_IT_WORKS = [
   {
-    icon: FaCalendar,
-    title: "Post Your Availability",
+    icon: FaEnvelope,
+    title: "Sign Up with Work Email",
     description:
-      "Select a date and time when you're free to practice. Add an optional note to help others find you.",
+      "Verify instantly with your work email. No manual approval needed - you're practicing in 60 seconds.",
   },
   {
     icon: FaHandPointer,
-    title: "Someone Claims Your Slot",
+    title: "Post or Claim a Session",
     description:
-      "Another user will see your post and claim the slot. You'll both receive a confirmation.",
+      "Post your availability (date, time, your role) or browse and claim someone else's slot. Most sessions get claimed within minutes.",
   },
   {
-    icon: FaVideo,
-    title: "Join at the Scheduled Time",
+    icon: FaFileAlt,
+    title: "Prepare Your Case (Optional)",
     description:
-      "On the scheduled date, you can join 20 minutes before the scheduled time. Roles are assigned automatically when the session is created.",
+      "Bring your own materials from question banks, or generate an AI case in 30 seconds if you don't have anything prepared.",
   },
   {
     icon: FaUsers,
     title: "Practice Together",
     description:
-      "Practice together and provide feedback to each other",
+      "Practice together and provide feedback to each other. Sessions are automatically transcribed so you can review and improve.",
   },
 ];
+
 
 const FAQ_ITEMS = [
   {
@@ -91,7 +91,7 @@ export default function AvoDeckLandingPage() {
   useEffect(() => {
     const t = setInterval(
       () => setWordIndex((i) => (i + 1) % CHANGING_PHRASES.length),
-      2800,
+      2200,
     );
     return () => clearInterval(t);
   }, []);
