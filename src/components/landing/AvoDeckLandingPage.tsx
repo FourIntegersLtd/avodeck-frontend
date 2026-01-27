@@ -135,9 +135,9 @@ export default function AvoDeckLandingPage() {
         </div>
       </header>
 
-      {/* Hero */}
-      <section className="relative bg-zinc-950 min-h-screen flex items-center">
-        <div className="mx-auto flex w-full max-w-7xl flex-col items-center justify-center gap-10 px-4 py-16 sm:px-6 sm:py-20 lg:flex-row lg:items-center lg:gap-12 lg:py-24">
+      {/* Hero — viewport height minus header, content centred */}
+      <section className="relative grid min-h-[calc(100vh-4.5rem)] min-h-[calc(100dvh-4.5rem)] w-full place-items-center bg-zinc-950">
+        <div className="flex w-full max-w-7xl flex-col items-center justify-center gap-10 px-4 py-8 sm:px-6 sm:py-12 lg:flex-row lg:items-center lg:gap-12 lg:py-16">
           <div className="flex-1 space-y-8 text-center lg:max-w-[55%] lg:flex-[0_0_55%] lg:text-left">
          
             <h1 className="text-2xl font-bold leading-tight text-white xs:text-2xl sm:text-3xl lg:text-4xl xl:text-5xl">
