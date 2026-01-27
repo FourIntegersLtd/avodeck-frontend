@@ -194,14 +194,15 @@ export default function AvoDeckLandingPage() {
               of finding a partner.
             </p>
             <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:justify-start">
-              <button
-                type="button"
-                onClick={() => router.push("/auth/register?appType=avodeck")}
+              <a
+                href="https://docs.google.com/forms/u/0/d/e/1FAIpQLScH-iS5qrxnmeHUTqsXS5NL0QRDdTb6xETTnpiLVEecyjmkCA/viewform?usp=send_form&pli=1&authuser=0"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex w-full items-center justify-center gap-2 rounded-full bg-emerald-500 px-6 py-3 text-base font-semibold text-white transition hover:bg-emerald-400 sm:w-auto"
               >
-              Join wait list
+                Join wait list
                 <FaArrowRight className="h-4 w-4" />
-              </button>
+              </a>
               {/* <button
                 type="button"
                 onClick={() => router.push("/auth/login")}
@@ -375,7 +376,6 @@ export default function AvoDeckLandingPage() {
                 {[
                   "2 practice sessions",
                   "Match with practice partners",
-                  "Session transcripts",
                   "Verified users",
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-2">
@@ -405,7 +405,8 @@ export default function AvoDeckLandingPage() {
                 {[
                   "Unlimited video calls with practice partners",
                   "Structured practice sessions",
-                  "Session transcripts",
+                  "Video replays — watch your consultation",
+                  "Debrief with colleague",
                   "Verified users",
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-2">
