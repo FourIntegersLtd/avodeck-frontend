@@ -31,7 +31,7 @@ const HOW_IT_WORKS_STEPS = [
     icon: FaHandPointer,
     title: "Choose: Instant Match or Marketplace",
     description:
-      "Instant Match—see who's free now and get paired for a short video session. Or use the marketplace: post your availability or claim someone else's slot for SCA practice.",
+      "Get paired now. Or post availability and schedule a session.",
   },
   {
     icon: FaVideo,
