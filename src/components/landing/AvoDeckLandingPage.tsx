@@ -684,7 +684,7 @@ export default function AvoDeckLandingPage() {
           </div>
           <div className="mt-12 sm:mt-16 lg:mt-20 pt-8 sm:pt-10 lg:pt-12">
             <p className="text-center text-base text-zinc-400 px-4">
-              {new Date().getFullYear()} Four Integers Ltd. All rights reserved.
+              2026 Four Integers Ltd. All rights reserved.
             </p>
           </div>
         </div>

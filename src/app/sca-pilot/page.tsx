@@ -1,5 +1,5 @@
 import AvoDeckSCAPilotLandingPage from "@/components/landing/AvoDeckSCAPilotLandingPage";
 
-export default function Home() {
+export default function SCAPilotPage() {
   return <AvoDeckSCAPilotLandingPage />;
 }
