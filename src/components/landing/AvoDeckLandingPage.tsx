@@ -59,7 +59,7 @@ const HOW_IT_WORKS = [
     icon: FaUsers,
     title: "Practice Together on a Video Call",
     description:
-      "Join a video call, practice together, and give feedback in real time. Sessions are transcribed so you can review and improve.",
+      "Join a video call, practice together, and give feedback in real time.",
   },
 ];
 
@@ -110,7 +110,7 @@ export default function AvoDeckLandingPage() {
               alt="Avodeck"
               width={200}
               height={52}
-              className="h-8 sm:h-10 md:h-12 w-auto max-w-[140px] sm:max-w-[180px] shrink-0 object-contain object-left"
+              className="h-5 max-w-[90px] sm:h-7 sm:max-w-[120px] md:h-9 md:max-w-[155px] lg:h-10 lg:max-w-[170px] w-auto shrink-0 object-contain object-left"
             />
           </Link>
           <nav className="flex items-center gap-2 sm:gap-3">
