@@ -5,7 +5,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaArrowRight, FaCheck, FaClock, FaEnvelope, FaHandPointer, FaVideo } from "react-icons/fa";
+import {
+  FaArrowRight,
+  FaCheck,
+  FaClock,
+  FaEnvelope,
+  FaHandPointer,
+  FaVideo,
+} from "react-icons/fa";
 import { FaBolt, FaCalendarCheck } from "react-icons/fa6";
 import AvoDeckHowItWorks from "./AvoDeckHowItWorks";
 import Logo from "../ui/Logo";
@@ -30,14 +37,13 @@ const HOW_IT_WORKS_STEPS = [
   {
     icon: FaHandPointer,
     title: "Choose: Instant Match or Marketplace",
-    description:
-      "Get paired now. Or post availability and schedule a session.",
+    description: "Get paired instantly or post availability and schedule a session.",
   },
   {
     icon: FaVideo,
     title: "Practise together on a video call",
     description:
-      "Join a live video call. Structured timing. SCA-style practice with another trainee.",
+      "Join a live video call and practice together.",
   },
 ];
 
@@ -148,7 +154,8 @@ export default function AvoDeckSCAPilotLandingPage() {
               </span>
             </h1>
             <p className="mx-auto max-w-xl text-base text-zinc-400 lg:mx-0">
-              Match for free with GP trainees preparing for the RCGP SCA exam in live video practice sessions.
+              Match for free with GP trainees preparing for the RCGP SCA exam in
+              live video sessions.
             </p>
             <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:justify-start">
               <a
@@ -193,12 +200,14 @@ export default function AvoDeckSCAPilotLandingPage() {
                     </div>
                   </div>
                   <div className="min-w-0 flex-1">
-                    <p className="font-medium text-white text-sm sm:text-base">@Sarah K · @James M.</p>
+                    <p className="font-medium text-white text-sm sm:text-base">
+                      @Sarah K · @James M.
+                    </p>
                     <p className="text-zinc-500 text-sm sm:text-base">
-                      Video practice · Session booked
+                       Session booked
                     </p>
                     <p className="mt-0.5 text-zinc-500 text-sm sm:text-base">
-                      RCGP SCA · 12 min stations
+                      RCGP SCA exam
                     </p>
                   </div>
                 </div>
@@ -206,7 +215,9 @@ export default function AvoDeckSCAPilotLandingPage() {
                   <FaClock className="h-4 w-4 shrink-0 text-zinc-500" />
                   <div className="min-w-0 flex-1 text-sm sm:text-base">
                     <p className="font-medium text-zinc-300">Today, 2:00 PM</p>
-                    <p className="text-zinc-500 text-sm sm:text-base">Join from dashboard</p>
+                    <p className="text-zinc-500 text-sm sm:text-base">
+                      Join from dashboard
+                    </p>
                   </div>
                   <span className="shrink-0 rounded-full bg-emerald-500/15 px-2.5 py-1 text-sm sm:text-base font-medium text-emerald-400">
                     Starts in 2 hrs
@@ -293,9 +304,9 @@ export default function AvoDeckSCAPilotLandingPage() {
       {/* Pilot framing */}
       <section className="bg-zinc-950 py-12 sm:py-16">
         <div className="mx-auto max-w-3xl px-4 sm:px-6">
-         
           <p className="mt-2 text-center text-base text-zinc-400">
-            Pilot: We're running a limited pilot for GP trainees sitting the March/April 2026 SCA exams.
+            Pilot: We're running a limited pilot for GP trainees sitting the
+            March/April 2026 SCA exams.
           </p>
           <ul className="mt-6 space-y-3 text-center text-base text-zinc-400">
             {PILOT_BENEFITS.map((item) => (
@@ -305,8 +316,6 @@ export default function AvoDeckSCAPilotLandingPage() {
         </div>
       </section>
 
-    
-
       {/* Final CTA */}
       <section className="bg-zinc-950 py-12 sm:py-16">
         <div className="mx-auto max-w-2xl px-4 text-center sm:px-6">
@@ -314,7 +323,8 @@ export default function AvoDeckSCAPilotLandingPage() {
             Ready to practise?
           </h2>
           <p className="mt-2 text-base text-zinc-400">
-            Join the SCA pilot. Free—no cost. Live video sessions. Limited places.
+            Join the SCA pilot. Free—no cost. Live video sessions. Limited
+            places.
           </p>
           <div className="mt-6">
             <a
@@ -345,7 +355,9 @@ export default function AvoDeckSCAPilotLandingPage() {
                 <Logo variant="dark" />
               </span>
             </a>
-            <span className="text-zinc-600" aria-hidden>·</span>
+            <span className="text-zinc-600" aria-hidden>
+              ·
+            </span>
             <span>2026 Four Integers Ltd. All rights reserved.</span>
           </p>
         </div>
