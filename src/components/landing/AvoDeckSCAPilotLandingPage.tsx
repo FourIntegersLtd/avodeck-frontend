@@ -43,7 +43,7 @@ const HOW_IT_WORKS_STEPS = [
     icon: FaVideo,
     title: "Practise together on a video call",
     description:
-      "Join a live video call and practice together.",
+      "Bring your own materials. Join a live video call, share your screen, and practise together.",
   },
 ];
 
