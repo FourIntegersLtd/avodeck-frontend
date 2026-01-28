@@ -27,13 +27,13 @@ import Logo from "../ui/Logo";
 
 const CHANGING_PHRASES = [
   { prefix: "the ", word: "right" },
-  { prefix: "a ", word: "reliable" },
+  { prefix: "a ", word: "committed" },
   { prefix: "an ", word: "instant" },
   { prefix: "a ", word: "like-minded" },
-  { prefix: "an ", word: "exam-focused" },
-  { prefix: "a ", word: "stress-free" },
-  { prefix: "a ", word: "timely" },
-  { prefix: "a ", word: "verified" },
+  { prefix: "an ", word: "exam-ready" },
+  { prefix: "a ", word: "supportive" },
+  { prefix: "a ", word: "consistent" },
+  { prefix: "a ", word: "vetted" },
 ];
 
 const HOW_IT_WORKS = [
@@ -41,25 +41,25 @@ const HOW_IT_WORKS = [
     icon: FaEnvelope,
     title: "Sign Up with Work Email",
     description:
-      "Verify instantly with your work email. No manual approval needed - you're ready to join video practice sessions in 60 seconds.",
+      "Verify with your work email. You're ready for video practice in under a minute.",
   },
   {
     icon: FaHandPointer,
     title: "Post or Claim a Video Session",
     description:
-      "Post your availability (date, time, your role) or browse and claim someone else's video slot. Most sessions get claimed within minutes.",
+      "Post your availability or browse and claim someone else's slot. Most sessions get claimed within minutes.",
   },
   {
     icon: FaFileAlt,
     title: "Prepare Your Case",
     description:
-      "Bring your own materials from question banks, or generate an AI case in 30 seconds. Have everything ready before you join the video call.",
+      "Bring your own materials from question banks, or generate an AI case in 30 seconds.",
   },
   {
     icon: FaUsers,
     title: "Practice Together on a Video Call",
     description:
-      "Join a video call and practice together. Give each other feedback in real time. Sessions are automatically transcribed so you can review and improve.",
+      "Join a video call, practice together, and give feedback in real time. Sessions are transcribed so you can review and improve.",
   },
 ];
 
@@ -189,7 +189,7 @@ export default function AvoDeckLandingPage() {
                 <span className="whitespace-nowrap">practice partner</span>
               </span>
             </h1>
-            <p className="mx-auto max-w-xl text-sm text-zinc-400 xs:text-base sm:text-lg lg:mx-0">
+            <p className="mx-auto max-w-xl text-base text-zinc-400 sm:text-lg lg:mx-0">
               Match with doctors preparing for the same exam without the hassle
               of finding a partner.
             </p>
@@ -200,7 +200,7 @@ export default function AvoDeckLandingPage() {
                 rel="noopener noreferrer"
                 className="flex w-full items-center justify-center gap-2 rounded-full bg-emerald-500 px-6 py-3 text-base font-semibold text-white transition hover:bg-emerald-400 sm:w-auto"
               >
-                Join wait list
+                Join waitlist
                 <FaArrowRight className="h-4 w-4" />
               </a>
               {/* <button
@@ -215,7 +215,7 @@ export default function AvoDeckLandingPage() {
           <div className="w-full lg:max-w-[45%] lg:flex-[0_0_45%]">
             <div className="overflow-hidden rounded-2xl border border-zinc-700/60 bg-zinc-900/80 shadow-2xl">
               <div className="flex items-center justify-between border-b border-zinc-700/60 bg-zinc-800/80 px-4 py-3">
-                <span className="flex items-center gap-2 text-sm font-medium text-zinc-300">
+                <span className="flex items-center gap-2 text-base font-medium text-zinc-300">
                   <FaVideo className="h-4 w-4 text-emerald-400/80" />
                   Upcoming video session
                 </span>
@@ -245,21 +245,21 @@ export default function AvoDeckLandingPage() {
                   </div>
                   <div className="min-w-0 flex-1">
                     <p className="font-medium text-white">@Sarah K · @James M.</p>
-                    <p className="text-sm text-zinc-500">
+                    <p className="text-base text-zinc-500">
                       Video practice · Session booked
                     </p>
-                    <p className="mt-0.5 text-xs text-zinc-500">
+                    <p className="mt-0.5 text-base text-zinc-500">
                       RCGP SCA · 12 min stations
                     </p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 rounded-lg bg-zinc-800/80 p-3">
                   <FaClock className="h-4 w-4 shrink-0 text-zinc-500" />
-                  <div className="min-w-0 flex-1 text-sm">
+                  <div className="min-w-0 flex-1 text-base">
                     <p className="font-medium text-zinc-300">Today, 2:00 PM</p>
-                    <p className="text-zinc-500">Session scheduled · Join from dashboard</p>
+                    <p className="text-zinc-500"> Join from dashboard</p>
                   </div>
-                  <span className="shrink-0 rounded-full bg-emerald-500/15 px-2.5 py-1 text-xs font-medium text-emerald-400">
+                  <span className="shrink-0 rounded-full bg-emerald-500/15 px-2.5 py-1 text-base font-medium text-emerald-400">
                     Starts in 2 hrs
                   </span>
                 </div>
@@ -275,7 +275,7 @@ export default function AvoDeckLandingPage() {
           <h2 className="text-center text-xl sm:text-2xl md:text-3xl font-bold text-white">
             How it works
           </h2>
-          <p className="mx-auto mt-2 sm:mt-3 max-w-2xl text-center text-sm sm:text-base text-zinc-400 px-4">
+          <p className="mx-auto mt-2 sm:mt-3 max-w-2xl text-center text-base text-zinc-400 px-4">
             Four simple steps to find your practice partner and get exam-ready.
           </p>
           <div className="mt-8 sm:mt-12">
@@ -292,7 +292,7 @@ export default function AvoDeckLandingPage() {
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
                 Practice with Colleagues
               </h2>
-              <p className="mt-4 text-sm sm:text-base text-zinc-400 max-w-3xl mx-auto">
+              <p className="mt-4 text-base text-zinc-400 max-w-3xl mx-auto">
                 Choose between instant matching or scheduled sessions. Practice
                 clinical scenarios with colleagues in real-time video
                 consultations.
@@ -329,7 +329,7 @@ export default function AvoDeckLandingPage() {
                       <h3 className="text-lg font-semibold text-white sm:text-xl">
                         {item.title}
                       </h3>
-                      <p className="text-sm sm:text-base text-zinc-400">
+                      <p className="text-base text-zinc-400">
                         {item.description}
                       </p>
                     </div>
@@ -371,7 +371,7 @@ export default function AvoDeckLandingPage() {
                 <span className="text-3xl font-bold text-white">£0</span>
                 <span className="text-zinc-400">forever</span>
               </div>
-              <p className="mt-1 text-sm text-zinc-500">2 sessions only</p>
+              <p className="mt-1 text-base text-zinc-500">2 sessions only</p>
               <ul className="mt-6 space-y-3 text-zinc-300">
                 {[
                   "2 practice sessions",
@@ -400,7 +400,7 @@ export default function AvoDeckLandingPage() {
                 <span className="text-3xl font-bold text-white">9.99</span>
                 <span className="text-zinc-400">/month</span>
               </div>
-              <p className="mt-1 text-sm text-zinc-500">Unlimited sessions</p>
+              <p className="mt-1 text-base text-zinc-500">Unlimited sessions</p>
               <ul className="mt-6 space-y-3 text-zinc-300">
                 {[
                   "Unlimited video calls with practice partners",
@@ -442,7 +442,7 @@ export default function AvoDeckLandingPage() {
                 <button
                   type="button"
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left text-sm font-medium text-white transition hover:bg-zinc-800/50"
+                  className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left text-base font-medium text-white transition hover:bg-zinc-800/50"
                   aria-expanded={openFaq === i}
                 >
                   {item.q}
@@ -464,7 +464,7 @@ export default function AvoDeckLandingPage() {
                       transition={{ duration: 0.25, ease: "easeInOut" }}
                       className="overflow-hidden border-t border-zinc-800"
                     >
-                      <div className="px-5 py-4 text-sm text-zinc-400">
+                      <div className="px-5 py-4 text-base text-zinc-400">
                         {item.a}
                       </div>
                     </motion.div>
@@ -566,7 +566,7 @@ export default function AvoDeckLandingPage() {
                 <h4 className="text-xs font-semibold uppercase tracking-wider text-emerald-400">
                   Exams
                 </h4>
-                <ul className="mt-3 space-y-2 text-sm text-white">
+                <ul className="mt-3 space-y-2 text-base text-white">
                   <li>
                     <Link
                       href="/exams/sca"
@@ -598,7 +598,7 @@ export default function AvoDeckLandingPage() {
                 <h4 className="text-xs font-semibold uppercase tracking-wider text-emerald-400">
                   Resources
                 </h4>
-                <ul className="mt-3 space-y-2 text-sm text-white">
+                <ul className="mt-3 space-y-2 text-base text-white">
                   <li>
                     <Link
                       href="/"
@@ -637,7 +637,7 @@ export default function AvoDeckLandingPage() {
                 <h4 className="text-xs font-semibold uppercase tracking-wider text-emerald-400">
                   Legal
                 </h4>
-                <ul className="mt-3 space-y-2 text-sm text-white">
+                <ul className="mt-3 space-y-2 text-base text-white">
                   <li>
                     <Link
                       href="/compliances/privacy-policy"
@@ -683,7 +683,7 @@ export default function AvoDeckLandingPage() {
             </div>
           </div>
           <div className="mt-12 sm:mt-16 lg:mt-20 pt-8 sm:pt-10 lg:pt-12">
-            <p className="text-center text-xs sm:text-sm text-zinc-400 px-4">
+            <p className="text-center text-base text-zinc-400 px-4">
               {new Date().getFullYear()} Four Integers Ltd. All rights reserved.
             </p>
           </div>

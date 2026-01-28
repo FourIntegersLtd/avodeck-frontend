@@ -54,25 +54,23 @@ export default function AvoDeckHowItWorks({
   const prevIndex = (activeIndex - 1 + n) % n;
   const nextIndex = (activeIndex + 1) % n;
 
+  // Smaller slide distance on mobile to avoid shake; opacity-heavy
   const slideVariants = {
-    enter: (d: "prev" | "next") => ({ x: d === "next" ? 120 : -120, opacity: 0, scale: 0.92 }),
-    center: { x: 0, opacity: 1, scale: 1 },
-    exit: (d: "prev" | "next") => ({ x: d === "next" ? -120 : 120, opacity: 0, scale: 0.92 }),
+    enter: (d: "prev" | "next") => ({ x: d === "next" ? 48 : -48, opacity: 0 }),
+    center: { x: 0, opacity: 1 },
+    exit: (d: "prev" | "next") => ({ x: d === "next" ? -48 : 48, opacity: 0 }),
   };
 
   return (
     <div className="relative w-full overflow-x-hidden">
-      {/* Progress bars with smooth width transition */}
+      {/* Progress bars — fixed width to avoid layout shift on mobile */}
       <div className="flex justify-center mb-8 sm:mb-12 gap-2 sm:gap-3">
         {steps.map((_, index) => (
-          <motion.div
+          <div
             key={index}
-            layout
-            className={`h-1.5 rounded-full ${
+            className={`h-1.5 w-8 sm:w-10 rounded-full flex-shrink-0 transition-colors duration-200 ${
               index === activeIndex ? "bg-emerald-400" : "bg-zinc-700"
             }`}
-            transition={{ type: "spring", stiffness: 400, damping: 30 }}
-            animate={{ width: index === activeIndex ? "6rem" : "3rem" }}
           />
         ))}
       </div>
@@ -108,14 +106,14 @@ export default function AvoDeckHowItWorks({
                 return <Icon className="h-6 w-6 sm:h-7 sm:w-7 text-emerald-400/80" />;
               })()}
             </div>
-            <span className="max-w-[4rem] truncate text-center text-[10px] sm:text-xs font-medium text-zinc-500">
+            <span className="max-w-[4rem] truncate text-center text-xs sm:text-xs font-medium text-zinc-500">
               {steps[prevIndex].title}
             </span>
           </div>
         </motion.div>
 
         {/* Center card — slides in from left or right when step changes */}
-        <div className="relative w-48 h-56 sm:w-56 sm:h-64 md:w-64 md:h-80 lg:w-72 lg:h-[22rem] flex-shrink-0 z-10 overflow-visible">
+        <div className="relative w-48 h-56 sm:w-56 sm:h-64 md:w-64 md:h-80 lg:w-72 lg:h-[22rem] flex-shrink-0 z-10 overflow-hidden">
           <AnimatePresence initial={false} mode="sync" custom={direction}>
             <motion.div
               key={activeIndex}
@@ -125,7 +123,7 @@ export default function AvoDeckHowItWorks({
               initial="enter"
               animate="center"
               exit="exit"
-              transition={{ type: "spring", stiffness: 320, damping: 32 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
             >
               <svg viewBox="0 0 200 280" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
                 <defs>
@@ -160,9 +158,9 @@ export default function AvoDeckHowItWorks({
               <div className="absolute inset-0 flex items-center justify-center px-4 sm:px-6 md:px-8 py-8 sm:py-10 md:py-12 pt-16 sm:pt-18 md:pt-20">
                 <motion.div
                   className="relative w-[75%] sm:w-[70%] min-h-[35%] rounded-2xl border border-white/20 bg-gradient-to-b from-white/95 to-zinc-100/95 p-4 shadow-2xl shadow-black/20 backdrop-blur-sm sm:p-5"
-                  initial={{ opacity: 0, y: 6 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.06, duration: 0.25 }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.05, duration: 0.2 }}
                   style={{ boxShadow: "0 4px 24px -4px rgba(0,0,0,0.2), 0 0 0 1px rgba(255,255,255,0.1) inset" }}
                 >
                   <div className="flex h-full min-h-[2.5rem] flex-col items-center justify-center gap-1">
@@ -172,7 +170,7 @@ export default function AvoDeckHowItWorks({
                         return <Icon className="h-4 w-4 text-emerald-600 sm:h-5 sm:w-5" />;
                       })()}
                     </div>
-                    <h3 className="text-zinc-900 font-semibold text-xs leading-tight text-center sm:text-sm md:text-base lg:text-lg">
+                    <h3 className="text-zinc-900 font-semibold text-sm leading-tight text-center sm:text-base md:text-base lg:text-lg">
                       {activeStep.title}
                     </h3>
                   </div>
@@ -211,40 +209,39 @@ export default function AvoDeckHowItWorks({
                 return <Icon className="h-6 w-6 sm:h-7 sm:w-7 text-emerald-400/80" />;
               })()}
             </div>
-            <span className="max-w-[4rem] truncate text-center text-[10px] sm:text-xs font-medium text-zinc-500">
-              {steps[nextIndex].title}
-            </span>
+<span className="max-w-[4rem] truncate text-center text-xs sm:text-xs font-medium text-zinc-500">
+            {steps[nextIndex].title}
+          </span>
           </div>
         </motion.div>
       </div>
 
-      {/* Description with smooth crossfade */}
-      <div className="mt-6 sm:mt-8 text-center min-h-[4rem] flex items-center justify-center px-4 sm:px-6">
-        <AnimatePresence mode="sync">
+      {/* Description — opacity-only crossfade, fixed height to prevent layout shift */}
+      <div className="mt-6 sm:mt-8 relative min-h-[5rem] sm:min-h-[4.5rem] overflow-hidden px-4 sm:px-6">
+        <AnimatePresence mode="wait" initial={false}>
           <motion.p
             key={activeIndex}
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.28, ease: "easeInOut" }}
-            className="text-zinc-400 text-xs sm:text-sm md:text-base max-w-2xl mx-auto"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            className="absolute left-4 right-4 sm:left-6 sm:right-6 top-1/2 -translate-y-1/2 text-center text-zinc-400 text-base max-w-2xl mx-auto"
           >
             {activeStep.description}
           </motion.p>
         </AnimatePresence>
       </div>
 
-      {/* Navigation Dots */}
-      <div className="flex justify-center gap-3 mt-8">
+      {/* Navigation dots — fixed size to avoid layout shift */}
+      <div className="flex justify-center items-center gap-3 mt-8">
         {steps.map((_, index) => (
-          <motion.button
+          <button
             key={index}
+            type="button"
             onClick={() => goTo(index)}
-            className={`rounded-full focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 focus:ring-offset-zinc-950 ${
+            className={`w-2.5 h-2.5 rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 focus:ring-offset-zinc-950 ${
               index === activeIndex ? "bg-emerald-400" : "bg-zinc-600 hover:bg-zinc-500"
             }`}
-            animate={{ width: index === activeIndex ? 12 : 10, height: index === activeIndex ? 12 : 10 }}
-            transition={{ type: "spring", stiffness: 400, damping: 30 }}
             aria-label={`Go to step ${index + 1}`}
           />
         ))}
