@@ -52,7 +52,7 @@ const LIVE_SESSION_OPTIONS = [
     icon: FaBolt,
     title: "Instant Match",
     description:
-      "Check if anyone's available right now. Get matched instantly and jump into  practice session.",
+      "Check if anyone's available right now. Get matched instantly and jump into a practice session.",
   },
   {
     icon: FaCalendarCheck,
@@ -63,15 +63,13 @@ const LIVE_SESSION_OPTIONS = [
 ];
 
 const BETTER_THAN_WHATSAPP = [
-  "Less back-and-forth. Post a slot, claim one, or get an instant match. Done.",
+  "Less back-and-forth. Post a slot, claim one, or get an instant match.",
   "Live video calls. Structured timing—clear start and end.",
   "People actually show up. Slots are committed, not lost in the chat.",
 ];
 
-const PILOT_BENEFITS = [
-  "Small group. We're keeping it limited so we can respond to your feedback.",
-  "Your feedback shapes what we build next.",
-];
+const PILOT_NOTE =
+  "Your feedback shapes what we build next.";
 
 const WAITLIST_FORM_URL =
   "https://docs.google.com/forms/u/0/d/e/1FAIpQLScH-iS5qrxnmeHUTqsXS5NL0QRDdTb6xETTnpiLVEecyjmkCA/viewform?usp=send_form&pli=1&authuser=0";
@@ -127,10 +125,10 @@ export default function AvoDeckSCAPilotLandingPage() {
       {/* Hero — viewport height minus header, content centred (from original) */}
       <section className="relative grid min-h-[calc(100vh-4.5rem)] min-h-[calc(100dvh-4.5rem)] w-full place-items-center bg-zinc-950">
         <div className="flex w-full max-w-7xl flex-col items-center justify-center gap-10 px-4 py-8 sm:px-6 sm:py-12 lg:flex-row lg:items-center lg:gap-12 lg:py-16">
-          <div className="flex-1 space-y-8 text-center lg:max-w-[55%] lg:flex-[0_0_55%] lg:text-left">
-            <h1 className="text-2xl font-bold leading-tight text-white xs:text-2xl sm:text-3xl lg:text-4xl xl:text-5xl">
+          <div className="flex-1 space-y-8 text-left lg:max-w-[55%] lg:flex-[0_0_55%]">
+            <h1 className="text-2xl font-bold leading-tight text-white xs:text-2xl sm:text-xl lg:text-4xl xl:text-5xl">
               <span className="block">You&apos;re one click away from</span>
-              <span className="mt-1 flex flex-wrap items-baseline justify-center gap-x-1.5 gap-y-1 lg:justify-start">
+              <span className="mt-1 flex flex-wrap items-baseline justify-start gap-x-1.5 gap-y-1">
                 <span>finding</span>
                 <span className="relative inline-flex w-fit max-w-full justify-center overflow-hidden rounded-lg bg-emerald-400 px-2 py-1 xs:px-3 xs:py-1.5 align-baseline whitespace-nowrap">
                   <AnimatePresence mode="wait">
@@ -153,11 +151,11 @@ export default function AvoDeckSCAPilotLandingPage() {
                 <span className="whitespace-nowrap">practice partner</span>
               </span>
             </h1>
-            <p className="mx-auto max-w-xl text-base text-zinc-400 lg:mx-0">
-              Match for free with GP trainees preparing for the RCGP SCA exam in
+            <p className="max-w-xl text-base text-zinc-400">
+              Practise for free with GP trainees preparing for the RCGP SCA exam in
               live video sessions.
             </p>
-            <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:justify-start">
+            <div className="flex flex-col items-start gap-4 sm:flex-row sm:justify-start">
               <a
                 href={WAITLIST_FORM_URL}
                 target="_blank"
@@ -304,15 +302,13 @@ export default function AvoDeckSCAPilotLandingPage() {
       {/* Pilot framing */}
       <section className="bg-zinc-950 py-12 sm:py-16">
         <div className="mx-auto max-w-3xl px-4 sm:px-6">
-          <p className="mt-2 text-center text-base text-zinc-400">
-            Pilot: We're running a limited pilot for GP trainees sitting the
-            March/April 2026 SCA exams.
+          <h2 className="text-center text-xl font-bold text-white sm:text-2xl">
+            Pilot
+          </h2>
+          <p className="mt-3 text-center text-base text-zinc-400">
+            We&apos;re running a limited pilot for GP trainees sitting the
+            March/April 2026 SCA exams. {PILOT_NOTE}
           </p>
-          <ul className="mt-6 space-y-3 text-center text-base text-zinc-400">
-            {PILOT_BENEFITS.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
         </div>
       </section>
 
@@ -323,8 +319,7 @@ export default function AvoDeckSCAPilotLandingPage() {
             Ready to practise?
           </h2>
           <p className="mt-2 text-base text-zinc-400">
-            Join the SCA pilot. Free—no cost. Live video sessions. Limited
-            places.
+            Free—limited places.
           </p>
           <div className="mt-6">
             <a
@@ -343,23 +338,23 @@ export default function AvoDeckSCAPilotLandingPage() {
       {/* Footer — single line: powered by + copyright */}
       <footer className="border-t border-zinc-800 bg-zinc-950 py-10 sm:py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <p className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-center text-base text-zinc-500">
+          <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-center text-base text-zinc-500">
             <a
               href="https://www.osceguide.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-wider text-zinc-500 transition hover:text-zinc-400"
+              className="inline-flex items-center gap-1.5 text-base font-medium uppercase tracking-wider text-zinc-500 transition hover:text-zinc-400"
             >
               <span>POWERED BY</span>
-              <span className="inline-flex scale-[0.5] origin-left">
+              <span className="inline-flex scale-[0.6] origin-left">
                 <Logo variant="dark" />
               </span>
             </a>
             <span className="text-zinc-600" aria-hidden>
               ·
             </span>
-            <span>2026 Four Integers Ltd. All rights reserved.</span>
-          </p>
+            <span className="uppercase">2026 Four Integers Ltd. All rights reserved.</span>
+          </div>
         </div>
       </footer>
     </div>
