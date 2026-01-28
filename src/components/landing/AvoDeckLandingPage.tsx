@@ -244,22 +244,22 @@ export default function AvoDeckLandingPage() {
                     </div>
                   </div>
                   <div className="min-w-0 flex-1">
-                    <p className="font-medium text-white">@Sarah K · @James M.</p>
-                    <p className="text-base text-zinc-500">
+                    <p className="font-medium text-white text-sm sm:text-base">@Sarah K · @James M.</p>
+                    <p className="text-zinc-500 text-sm sm:text-base">
                       Video practice · Session booked
                     </p>
-                    <p className="mt-0.5 text-base text-zinc-500">
+                    <p className="mt-0.5 text-zinc-500 text-sm sm:text-base">
                       RCGP SCA · 12 min stations
                     </p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 rounded-lg bg-zinc-800/80 p-3">
                   <FaClock className="h-4 w-4 shrink-0 text-zinc-500" />
-                  <div className="min-w-0 flex-1 text-base">
+                  <div className="min-w-0 flex-1 text-sm sm:text-base">
                     <p className="font-medium text-zinc-300">Today, 2:00 PM</p>
-                    <p className="text-zinc-500"> Join from dashboard</p>
+                    <p className="text-zinc-500 text-sm sm:text-base">Join from dashboard</p>
                   </div>
-                  <span className="shrink-0 rounded-full bg-emerald-500/15 px-2.5 py-1 text-base font-medium text-emerald-400">
+                  <span className="shrink-0 rounded-full bg-emerald-500/15 px-2.5 py-1 text-sm sm:text-base font-medium text-emerald-400">
                     Starts in 2 hrs
                   </span>
                 </div>
