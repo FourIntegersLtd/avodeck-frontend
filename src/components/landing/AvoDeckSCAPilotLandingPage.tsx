@@ -72,8 +72,7 @@ const PILOT_NOTE =
   "Your feedback shapes what we build next.";
 
 const WAITLIST_FORM_URL =
-  "https://docs.google.com/forms/u/0/d/e/1FAIpQLScH-iS5qrxnmeHUTqsXS5NL0QRDdTb6xETTnpiLVEecyjmkCA/viewform?usp=send_form&pli=1&authuser=0";
-
+"https://forms.gle/Pt6iqknDUsJ35UM27"
 export default function AvoDeckSCAPilotLandingPage() {
   const router = useRouter();
   const [wordIndex, setWordIndex] = useState(0);
@@ -111,13 +110,13 @@ export default function AvoDeckSCAPilotLandingPage() {
             >
               How it works
             </Link>
-            <button
+            {/* <button
               type="button"
               onClick={() => router.push("/auth/login")}
               className="rounded-full border border-zinc-600 px-3 py-1.5 text-xs font-medium text-zinc-300 transition hover:border-zinc-500 hover:text-white sm:px-4 sm:py-2 sm:text-sm"
             >
               Log in
-            </button>
+            </button> */}
           </nav>
         </div>
       </header>
