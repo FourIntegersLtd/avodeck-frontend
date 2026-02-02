@@ -14,7 +14,7 @@ import {
   FaVideo,
 } from "react-icons/fa";
 import { FaBolt, FaCalendarCheck } from "react-icons/fa6";
-import AvoDeckHowItWorks from "./AvoDeckHowItWorks";
+import AvodeckHowItWorks from "./AvodeckHowItWorks";
 import Logo from "../ui/Logo";
 
 const CHANGING_PHRASES = [
@@ -73,7 +73,7 @@ const PILOT_NOTE =
 
 const WAITLIST_FORM_URL =
 "https://forms.gle/Pt6iqknDUsJ35UM27"
-export default function AvoDeckSCAPilotLandingPage() {
+export default function AvodeckSCAPilotLandingPage() {
   const router = useRouter();
   const [wordIndex, setWordIndex] = useState(0);
 
@@ -93,11 +93,11 @@ export default function AvoDeckSCAPilotLandingPage() {
           <Link
             href="/"
             className="flex items-center"
-            aria-label="AvoDeck home"
+            aria-label="Avodeck home"
           >
             <Image
               src="/images/avodeck.png"
-              alt="AvoDeck"
+              alt="Avodeck"
               width={200}
               height={52}
               className="h-5 max-w-[90px] w-auto shrink-0 object-contain object-left sm:h-7 sm:max-w-[120px] md:h-9 md:max-w-[155px] lg:h-10 lg:max-w-[170px]"
@@ -239,7 +239,7 @@ export default function AvoDeckSCAPilotLandingPage() {
             Three steps to get into a live video session.
           </p>
           <div className="mt-8 sm:mt-12">
-            <AvoDeckHowItWorks steps={HOW_IT_WORKS_STEPS} />
+            <AvodeckHowItWorks steps={HOW_IT_WORKS_STEPS} />
           </div>
         </div>
       </section>
@@ -334,25 +334,25 @@ export default function AvoDeckSCAPilotLandingPage() {
         </div>
       </section>
 
-      {/* Footer — single line: powered by + copyright */}
-      <footer className="border-t border-zinc-800 bg-zinc-950 py-10 sm:py-12">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-center text-base text-zinc-500">
+      {/* Footer — mobile responsive: stacked on small screens, inline on larger */}
+      <footer className="border-t border-zinc-800 bg-zinc-950 py-8 sm:py-10 lg:py-12 px-4">
+        <div className=" sm:px-6">
+          <div className="flex flex-col  items-center justify-start gap-y-3 sm:gap-y-0 sm:gap-x-2 sm:gap-y-1 text-center text-sm sm:text-base text-zinc-500">
             <a
               href="https://www.osceguide.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-base font-medium uppercase tracking-wider text-zinc-500 transition hover:text-zinc-400"
+              className="inline-flex items-center gap-1.5 text-sm sm:text-base font-medium uppercase tracking-wider text-zinc-500 transition hover:text-zinc-400"
             >
               <span>POWERED BY</span>
-              <span className="inline-flex scale-[0.6] origin-left">
+              <span className="inline-flex scale-[0.55] sm:scale-[0.6] origin-left">
                 <Logo variant="dark" />
               </span>
             </a>
-            <span className="text-zinc-600" aria-hidden>
+            <span className="hidden sm:inline text-zinc-600" aria-hidden>
               ·
             </span>
-            <span className="uppercase">2026 Four Integers Ltd. All rights reserved.</span>
+            <span className="uppercase text-xs sm:text-sm lg:text-base">2026 Four Integers Ltd. All rights reserved.</span>
           </div>
         </div>
       </footer>

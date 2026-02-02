@@ -1,5 +1,5 @@
-import AvoDeckSCAPilotLandingPage from "@/components/landing/AvoDeckSCAPilotLandingPage";
+import AvodeckSCAPilotLandingPage from "@/components/landing/AvodeckSCAPilotLandingPage";
 
 export default function SCAPilotPage() {
-  return <AvoDeckSCAPilotLandingPage />;
+  return <AvodeckSCAPilotLandingPage />;
 }

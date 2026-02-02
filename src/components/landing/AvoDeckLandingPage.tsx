@@ -22,7 +22,7 @@ import {
   FaClock,
 } from "react-icons/fa";
 import { FaCalendarCheck, FaXTwitter } from "react-icons/fa6";
-import AvoDeckHowItWorks from "./AvoDeckHowItWorks";
+import AvodeckHowItWorks from "./AvodeckHowItWorks";
 import Logo from "../ui/Logo";
 
 const CHANGING_PHRASES = [
@@ -82,7 +82,7 @@ const FAQ_ITEMS = [
   },
 ];
 
-export default function AvoDeckLandingPage() {
+export default function AvodeckLandingPage() {
   const router = useRouter();
   const [wordIndex, setWordIndex] = useState(0);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -279,7 +279,7 @@ export default function AvoDeckLandingPage() {
             Four simple steps to find your practice partner and get exam-ready.
           </p>
           <div className="mt-8 sm:mt-12">
-            <AvoDeckHowItWorks steps={HOW_IT_WORKS} />
+            <AvodeckHowItWorks steps={HOW_IT_WORKS} />
           </div>
         </div>
       </section>

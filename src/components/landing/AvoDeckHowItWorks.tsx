@@ -10,7 +10,7 @@ interface HowItWorksStep {
   description: string;
 }
 
-interface AvoDeckHowItWorksProps {
+interface AvodeckHowItWorksProps {
   steps: HowItWorksStep[];
   autoRotateInterval?: number;
 }
@@ -29,10 +29,10 @@ const cardPath = `
   Z
 `;
 
-export default function AvoDeckHowItWorks({
+export default function AvodeckHowItWorks({
   steps,
   autoRotateInterval = 4000,
-}: AvoDeckHowItWorksProps) {
+}: AvodeckHowItWorksProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState<"prev" | "next">("next");
 

@@ -15,8 +15,8 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "AvoDeck - Find Your Practice Partner",
-  description: "Match with doctors preparing for the same exam. Practice together and get exam-ready with AvoDeck.",
+  title: "Avodeck - Find Your Practice Partner",
+  description: "Match with doctors preparing for the same exam. Practice together and get exam-ready with Avodeck.",
   icons: {
     icon: [
       { url: "/images/avodeck-icon-32.png", sizes: "32x32", type: "image/png" },
